@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sessionStorage</title>
+</head>
+<body>
+    <h2>sesstionStorage测试页面</h2>
+
+    <script src="./sessionStorage.js"></script>
+    <script>
+
+        const data = {
+            "name":"lisi",
+            "age":18,
+            "sex":"man"
+        }
+
+        sessionStorage.setSessionStorage('test',data)
+        console.log(1,sessionStorage.getSessionStorage('test'))
+
+        const p = new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log('开始清除sessionStorage')
+                sessionStorage.delSessionStorage('test')
+                console.log('sessionStorage清除完成')
+                resolve()
+            },3000)
+        })
+
+        p.then(()=>{
+            console.log(2,sessionStorage.getSessionStorage('test'))
+        })
+
+    </script>
+</body>
+</html>

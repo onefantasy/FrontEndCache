@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cookie</title>
+</head>
+<body>
+    <h2>测试cookie的页面</h2>
+
+    <script src="./cookie.js"></script>
+    <script>
+
+        cookie.setCookie('test',123,'s200')
+
+        const testCookie = new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                cookie.delCookie('test')
+                resolve()
+            },3000)
+        })
+
+        testCookie.then(()=>{
+            console.log('cookie:',cookie.getCookie('test'))
+        })
+    </script>
+</body>
+</html>

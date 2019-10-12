@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>localStorage</title>
+</head>
+<body>
+
+    <h2>localStorage测试页面</h2>
+
+    <script src="./localStorage.js"></script>
+    <script>
+
+        const data = {
+            "cost":30,
+            "number":123,
+            "user":"zhangsan"
+        }
+
+        localStorage.setLocalStorage('test',data)
+        console.log(1,localStorage.getLocalStorage('test'))
+        console.log(1,localStorage.getLocalStorageKey())
+
+        const storage = new Promise((resolve)=>{
+            setTimeout(()=>{
+                console.log('开始删除localStorage')
+                localStorage.delLocalStorage('test')
+                console.log('localStorage删除完成')
+                resolve()
+            },3000)
+        })
+
+        storage.then(()=>{
+            console.log(2,localStorage.getLocalStorage('test'))
+            console.log(2,localStorage.getLocalStorageKey())
+        })
+    </script>
+</body>
+</html>
